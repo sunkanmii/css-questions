@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Navbar from './Navbar/Navbar';
 import './App.css';
 
 // Demo questions, more to be added later
@@ -44,13 +45,15 @@ function App() {
   }, 0);
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10 px-5">
-      <h1 className="text-3xl font-bold text-center mb-10">CSS Upskilling Q&A</h1>
+    <>
+    <Navbar/>
+    <div className="min-h-screen px-5 py-10 bg-gray-100">
+      <h1 className="mb-10 text-3xl font-bold text-center">CSS Upskilling Q&A</h1>
       {!showResults ? (
         <div className="space-y-8">
           {questions.map((q, index) => (
-            <div key={index} className="bg-white p-5 shadow rounded">
-              <h2 className="text-lg font-semibold mb-4">
+            <div key={index} className="p-5 bg-white rounded shadow">
+              <h2 className="mb-4 text-lg font-semibold">
                 {index + 1}. {q.question}
               </h2>
               <div className="space-y-2">
@@ -70,7 +73,7 @@ function App() {
           ))}
           <button
             onClick={calculateResults}
-            className="w-full bg-blue-500 text-white p-3 rounded font-bold hover:bg-blue-600 transition"
+            className="w-full p-3 font-bold text-white transition bg-blue-500 rounded hover:bg-blue-600"
           >
             Submit Answers
           </button>
@@ -78,8 +81,8 @@ function App() {
       ) : (
         <div className="space-y-8">
           {questions.map((q, index) => (
-            <div key={index} className="bg-white p-5 shadow rounded">
-              <h2 className="text-lg font-semibold mb-4">
+            <div key={index} className="p-5 bg-white rounded shadow">
+              <h2 className="mb-4 text-lg font-semibold">
                 {index + 1}. {q.question}
               </h2>
               <div className="space-y-2">
@@ -106,6 +109,7 @@ function App() {
         </div>
       )}
     </div>
+    </>
   );
 }
 
